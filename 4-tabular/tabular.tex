@@ -1,0 +1,128 @@
+\documentclass[11pt, a4paper]{article}
+\input{../include/preamble.tex}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{csvsimple}
+
+\begin{filecontents*}{bode.csv}
+frec,vin,vout,fase
+100,10,10,0
+1000,10, 9,1
+10000,10,7,-45
+\end{filecontents*}
+
+\title{Primer documento}
+\author{Dr. Ing. Pablo Cossutta}
+\date{2019}
+
+\begin{document}
+\maketitle
+\section{Tablas}
+Las tablas en \LaTeX \space son sumamente configurables, el formato estándar se observa en la Tabla \ref{table1}.
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla}
+	\label{table1}
+	\begin{tabular}{c | c c}
+		1 & 2 & 3 \\
+		\hline
+		4 & 5 & 6\\
+		7 & 8 & 9 \\
+	\end{tabular}
+\end{table}
+
+La Tabla \ref{table2} es la misma que la anterior pero con 	\textbackslash setlength\textbackslash tabcolsep\}\{1pt\}.
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla con \textbackslash tabcolsep}
+	\label{table2}
+	\setlength\tabcolsep{1pt}
+	\begin{tabular}{c | c c}
+		1 & 2 & 3\\
+		\hline
+		4 & 5 & 6\\
+		7 & 8 & 9 \\
+	\end{tabular}
+\end{table}
+
+La Tabla \ref{table3} es similar a la Tabla \ref{table1}  con 	\textbackslash renewcommand\{\textbackslash arraystretch\}\{2\}. Lo normal (utilizado en el formato IEEE) es utilizar el valor $1.3$.
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla con \textbackslash arraystrech}
+	\label{table3}
+	\renewcommand{\arraystretch}{2}
+	\begin{tabular}{c | c c}
+		1 & 2 & 3 \\
+		\hline
+		4 & 5 & 6\\
+		7 & 8 & 9\\
+	\end{tabular}
+\end{table}
+
+En la Tabla \ref{table4} se forzó un espacio adicional entre dos columnas.
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla con un espacio entre dos columnas}
+	\label{table4}
+	\begin{tabular}{c | c@{\hspace{2cm}} | c}
+		1 & 2 & 3 \\
+		\hline
+		4 & 5 & 6\\
+		7 & 8 & 9\\
+	\end{tabular}
+\end{table}
+
+Si se desea forzar un cambio de página es posible utilizar el comando \textbackslash newpage.
+\newpage
+
+Los campos de las tablas comúnmente utilizados son c, r, l y p\{\dots\} y se utilizan para la alineación horizontal. El p incluye el tamaño de la celda. En la Tabla \ref{table5} se utiliza este formato. 
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla con columna tipo p}
+	\label{table5}
+	\begin{tabular}{c | c p{0.3\textwidth}}
+		1 & 2 & Este es un texto un poco mas largo que solamente un número\\
+		\hline
+		4 & 5 & 6\\
+		7 & 8 & 9 \\
+	\end{tabular}
+\end{table}
+
+Si se desea usar l, r o c pero con tamaño fijo pueden utilizarse los comandos L, R y C definidos en el preámbulo, a modo de ejemplo, en la Tabla \ref{table6} se utilizan 3 columnas de tamaño igual a $\frac{1}{3}$ del tamaño del texto.
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla centrada con tamaño fijo}
+	\label{table6}
+	\begin{tabular}{| C{0.3\textwidth} | C{0.3\textwidth} | C{0.3\textwidth} |}
+		\hline
+		\bfseries Col. 1 & \bfseries Col. 2 & \bfseries Col. 3 \\
+		\hline
+		1 & 2 & 3\\
+		4 & 5 & 6\\
+		7 & 8 & 9 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+La Tabla \ref{table7} utiliza los datos proporcionados por el archivo ``bode.csv'' el cual se genera automáticamente con filecontents*.
+%\csvautotabular{bode.csv}
+%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla centrada con datos desde ``bode.csv'}
+	\label{table7}
+	\begin{tabular}{c c c c c}%
+		\bfseries \# & $\bm{f}$ & $\bm{v_{in}}$ & $\bm{v_{out}}$ & $\bm{\theta}$ \\ \hline
+		\csvreader[head to column names, late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+		\hline
+	\end{tabular}
+\end{table}
+
+Adentro del \textit{enviroment} tabular se puede poner cualquier cosa (muy útil para organizar un arreglo de gráficos).
+
+\section{Herramientas}
+La web \href{https://www.tablesgenerator.com}{LaTeX Tables Generator} permite generar el código correspondiente a una tabla incluyendo datos externos a partir de un archivo CSV.
+
+El paquete \href{https://ctan.org/tex-archive/macros/latex/contrib/booktabs/}{bookstabs} permite gran versatilidad de configuración en las tablas mientras que 
+el paquete \href{https://ctan.org/pkg/multirow?lang=en}{multirow} se utiliza para unir varias filas o varias columnas dentro de una tabla.
+\end{document}

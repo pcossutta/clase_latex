@@ -1,0 +1,75 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Primer documento}
+\author{Dr. Ing. Pablo Cossutta \thanks{Gracias a \LaTeX}}
+\date{2019}
+
+\begin{document}
+%\begin{titlepage}
+\maketitle
+%\end{titlepage}
+\section{Sección \textbackslash section} \label{sec1}
+Esto es una sección. Dentro de la organización jerárquica de un artículo es la de mayor jerarquía. En caso de libros y reportes, existe también \textbackslash part, \textbackslash chapter.
+
+Acá empieza otra línea del texto.
+Esto también es otra línea pero sin dejar una línea en blanco.
+
+\noindent \textbackslash noindent fuerza la no identación del bloque de texto.
+
+\subsection{Subsección \textbackslash subsection}
+Adentro de la sección. 
+
+\subsubsection{Subsubsección \textbackslash subsubsection}
+Adentro de la subsección, asumiendo que la palabra existe...
+
+\paragraph{Parágrafo \textbackslash paragraph}
+Y llegamos al parágrafo.
+\subparagraph{Subparágrafo \textbackslash subparagraph}
+Mas adentro, el subparágrafo.
+
+\section{Texto}
+\subsection{Caracteres especiales}
+\& \% \$ \# \_ \{ \} \textasciitilde \textasciicircum \textbackslash
+
+``Comillas dobles'' vs `comillas simples'
+
+\subsection{Tamaños}
+Estos son los diferentes tipos de letra que están por defecto:
+\begin{flushleft}
+	\Huge{Texto \textbackslash Huge}
+
+	\huge{Texto \textbackslash huge}
+
+	\LARGE{Texto \textbackslash LARGE}
+
+	\Large{Texto \textbackslash Large}
+
+	\large{Texto \textbackslash large}
+
+	\normalsize{Texto \textbackslash normalsize}
+
+	\small{Texto \textbackslash small}
+
+	\footnotesize{Texto \textbackslash footnotesize}
+
+	\scriptsize{Texto \textbackslash scriptsize}
+
+	\tiny{Texto \textbackslash tiny}
+\end{flushleft}
+
+\subsection{Atributos}
+El texto puede ser \textbf{Texto} (\textbackslash textbf), \textsc{Texto} (\textbackslash textsc), \textit{Texto} (\textbackslash textit) o cualquier combinación de ellas. No todas las tipografías tienen todas las combinaciones.
+
+\subsection{Referencias}
+Como se explica en la Sec. \ref{sec1}, esto es otra sección. Para referenciar otro lugar, se usa el comando \textbackslash ref\{\dots\}. Que apunta al lugar definido por \textbackslash label\{\dots\}.
+
+\newcommand\helloA[1][]{Soy una definición sin parámetros}
+\newcommand\helloB[1][]{Soy una definición con un parámetro opcional !\gdef\savearg{#1}}
+\section{Substituciones}
+\helloA
+
+\helloB{ Parámetro opcional}
+
+\helloB
+\end{document}

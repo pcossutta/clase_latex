@@ -1,0 +1,67 @@
+\documentclass[11pt, a4paper]{article}
+\input{../include/preamble.tex}
+
+\title{TikZ}
+\author{Dr. Ing. Pablo Cossutta}
+\date{2019}
+
+\begin{document}
+\maketitle
+\section{Dibujos en TikZ}
+En la Fig. \ref{fig1} se observa un diagrama realizado en tikz.
+%
+\begin{figure}[h]%
+	\centering
+	\begin{tikzpicture}
+		\tikzstyle{every node}=[font=\footnotesize]	
+		\tikzstyle{base} = [draw, align=center, line width=0.25mm, fill={rgb,255:red,204; green,255; blue,204}, minimum width=2cm, minimum height=1.25cm]	
+		\tikzstyle{blank} = [align=center, inner sep=0pt, outer sep=0pt]	
+		\tikzstyle{block} = [draw, rounded corners=0.1cm, align=center, line width=0.25mm, fill={rgb,255:red,209; green,225; blue,243}, minimum width=2cm, minimum height=2cm]	
+		\tikzstyle{flecha} = [->, line width=0.25mm, >=latex]
+		\tikzstyle{linea} = [line width=0.25mm, >=latex]
+		\tikzstyle{meas} = [draw, rectangle, densely dashed, minimum width=0.2cm, minimum height=0.6cm]
+		\tikzstyle{circulo} = [circle,fill=black,inner sep=0pt,minimum size=3pt]	
+		
+		\draw(-2.75cm,0.5cm) node[blank, label=left:$\bm{x^*}_k$](input){};
+		\draw(-1cm, 0.5cm) node[block, minimum height=1cm](extra){Extrapolación};
+		\draw [flecha] (input) -- (extra);
+		\draw [flecha] (extra.east) --++ (0.92cm,0) node[midway,blank, label=above:$\bm{x^*}_{k+n}$]{};
+		
+		\draw (2cm,0) node[block](min){Minimización\\de la función\\de costo};
+		\draw (2cm,-2.5cm) node[block](pred){Modelo\\de\\predicción};
+		\draw (5.5cm,0) node[base, minimum height=1.25cm, fill={rgb,255:red,255; green,204; blue,204}](conv){Convertidor};
+		\draw (8.5cm,0) node[base](load){Carga};
+		\draw (5.5cm,-2.5cm) node[block, minimum height=1.25cm](med){Mediciones};
+		\draw [flecha] (min.east) -- (conv.west) node[midway, label=above:$\bm{s}^{opt}$]{};
+		\draw [flecha] (conv.east) -- (load);
+		\draw [flecha] (conv.south) -- (med.north);
+		\draw [flecha] (load.south) |- (med.east);
+		\draw[flecha] (med.west) -- (pred.east) node[midway, blank, label=above:$\bm{x}_k$]{};
+		\draw[flecha] (pred.west) -| (0.5cm,-0.5cm) node[blank, label=left:$\bm{x}_{k+n}$]{} --++ (0.49cm, 0);
+		\draw[linea, dashed] (-2.33cm,1.25cm) --++ (5.6cm,0cm) --++ (0cm,-5cm) 
+		   --++(-5.6cm,0cm) -- cycle;
+		\draw (-0.45cm, -3.75cm) node[anchor=south east, align=center]{Controlador\\FCS-MPC};
+	\end{tikzpicture}%
+	\caption{Diagrama realizado en TikZ}
+	\label{fig1}
+\end{figure}
+
+La Fig. \ref{fig2} se incluye desde el pdf realizado en \textit{circuitikz}. 
+\vspace{1em}
+
+El comando \textbackslash label va siempre despues de \textbackslash caption.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[page=2]{../5-circuitikz/circuitikz.pdf}
+	\caption{Realizada en modo standalone}
+	\label{fig2}
+\end{figure}
+
+1 - Una línea
+
+2 - Otra línea
+
+3 - Podemos hacer cosas raras en latex como
+\vfill
+Poner esto abajo \hfill y \hfill Poner esto al final.
+\end{document}

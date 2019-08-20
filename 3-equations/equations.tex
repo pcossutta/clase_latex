@@ -1,0 +1,55 @@
+\documentclass[11pt, a4paper]{article}
+\input{../include/preamble.tex}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\title{Ecuaciones}
+\author{Dr. Ing. Pablo Cossutta}
+\date{2019}
+
+\begin{document}
+\maketitle
+\section{Ecuaciones}
+Para utilizar ecuaciones es necesario incluir el paquete amsmath.
+
+Existen 3 formas de escribir ecuaciones, inline, entre \textbackslash \$\dots \$, $E=mc^2$.
+
+Entre \textbackslash \$\$\dots \$\$, $$E=mc^2$$.
+
+O con \textbackslash begin\{equation\} \dots \textbackslash end\{equation\} 
+\begin{equation}
+	E=mc^2
+\end{equation}
+
+Si no se quiere numerar, se utiliza \textbackslash begin\{equation*\} \dots \textbackslash end\{equation*\} 
+\begin{equation*}
+	E=mc^2
+\end{equation*}
+
+\textbackslash begin\{split\} \dots \textbackslash end\{split\}
+\begin{equation}
+\begin{split}
+	a\,x^2+b\,x+c = 0\\
+	x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{split}
+\end{equation}
+
+\textbackslash begin\{aligned\} \dots \textbackslash end\{aligned\}
+\begin{equation}
+\begin{aligned}
+	a\,x^2+b\,x+c &= 0\\
+	x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{aligned}
+\end{equation}
+
+Varios
+\begin{equation*}
+\begin{split}
+	\lim_{n \to\infty} x\left(t\right) \\
+	\int_0^T x\left(t\right) dt \\
+	\iint_V x\left(u,v\right) du\,dv \\
+	\sum_{i=0}^n\left(i\right) \\
+	\alpha \; \beta \; \gamma \; \Omega \; \mu \bm{v}
+\end{split}
+\end{equation*}
+\end{document}

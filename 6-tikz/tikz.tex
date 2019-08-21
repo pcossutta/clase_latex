@@ -47,6 +47,7 @@ En la Fig. \ref{fig1} se observa un diagrama realizado en tikz.
 \end{figure}
 
 La Fig. \ref{fig2} se incluye desde el pdf realizado en \textit{circuitikz}. 
+
 \vspace{1em}
 
 El comando \textbackslash label va siempre despues de \textbackslash caption.
@@ -55,6 +56,42 @@ El comando \textbackslash label va siempre despues de \textbackslash caption.
 	\includegraphics[page=2]{../5-circuitikz/circuitikz.pdf}
 	\caption{Realizada en modo standalone}
 	\label{fig2}
+\end{figure}
+
+\newpage
+La Fig. \ref{fig3} se incluye desde TikZ para poder realizar anotaciones sobre la misma. 
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[image/.style={anchor=south west,inner sep=0,outer sep=0}]
+		\tikzstyle{every node}=[font=\footnotesize]	
+		\tikzstyle{block} = [align=center]	
+		\tikzstyle{flecha} = [->, line width=0.25mm, >=latex]
+		\node[anchor=south west,inner sep=0, outer sep=0] (image) at (0,0) {\includegraphics[width=9cm]{fig3.jpg}};
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+		        %\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+		        %\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+		        %\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }		        
+			\node at (0.61, 0.95) [block](a){MATLAB Simulink};
+			\node at (0.61, 0.85) [block](b){Convertidor\\Industrial};
+			\node at (0.61, 0.73) [block](c){Autotransformador\\Variable};
+			\node at (0.72, 0.62) [block]{Interfaz\\Analógica};
+			\node at (0.88, 0.57) [block]{FPGA};
+			\draw [flecha] (a.west) -- (0.31,0.87);
+			\draw [flecha] (b.west) -- (0.23,0.695);
+			\draw [flecha] (c.south) -- (0.5,0.48);
+		\end{scope}
+	\end{tikzpicture}%
+	\caption{Figura con anotaciones en TikZ}
+	\label{fig3}
+\end{figure}
+
+Finalmente, la Fig. \ref{fig4} denota el uso del parámetro \textit{trim} del comando \textbackslash includegraphics.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[trim={0 0 0 1.35cm}, clip, width=10cm]{fig4.png}
+	\caption{Utilización del parámetro \textit{trim} de \textbackslash includegraphics}
+	\label{fig4}
 \end{figure}
 
 1 - Una línea

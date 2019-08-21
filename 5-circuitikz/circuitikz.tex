@@ -1,5 +1,7 @@
 \documentclass[11pt, tikz, multi=page]{standalone}
 \usepackage[utf8]{inputenc}
+\usepackage{sansmathfonts}				% Sans Serif equations
+\renewcommand*\familydefault{\sfdefault} 		% Sans Serif as default font
 \usepackage{circuitikz}
 \usepackage{hyperref}
 \hypersetup{
@@ -19,7 +21,7 @@ Documentación del paquete \href{https://ctan.org/pkg/circuitikz?lang=en}{circui
 		\tikzstyle{every node}=[font=\footnotesize]	
 		\draw
 		(0,-1) to[american voltage source, l=$v\left(t\right)$, invert] ++(0,2) -- ++(0.5,0)
-		to[R, l=$R$, v=$v_r$, i=$i\left(t\right)$] ++(2,0) -- ++(0.5,0)
+		to[R, l=$R$, v=$v_r$, i=$i\left(t\right)$] ++(2,0) -- ++(0.5,0) node[]{}
 		to[C, l=$C$, v=$v_c$] ++(0,-2)
 		to[short, -*] ++ (-1.5,0) node[ground, scale=0.6]{} to[short] ++(-1.5,0);
 	\end{circuitikz}

@@ -12,26 +12,26 @@
 \section{Ecuaciones}
 Para utilizar ecuaciones es necesario incluir el paquete amsmath.
 
-Existen 3 formas de escribir ecuaciones, inline, entre \textbackslash \$\dots \$, $E=mc^2$.
+Existen 3 formas de escribir ecuaciones en \LaTeX, inline, entre \$\dots \$, $E=mc^2$ o sino $\int \sqrt{x^3}$.
 
-Entre \textbackslash \$\$\dots \$\$, $$E=mc^2$$.
+Entre \$\$\dots \$\$, $$E=mc^2$$.
 
 O con \textbackslash begin\{equation\} \dots \textbackslash end\{equation\} 
 \begin{equation}
 	E=mc^2
 \end{equation}
 
-Si no se quiere numerar, se utiliza \textbackslash begin\{equation*\} \dots \textbackslash end\{equation*\} 
+Si no se quiere numerar, hay que utilizar el paquete \textit{amsmath}, se utiliza \textbackslash begin\{equation*\} \dots \textbackslash end\{equation*\} 
 \begin{equation*}
 	E=mc^2
 \end{equation*}
 
 \textbackslash begin\{split\} \dots \textbackslash end\{split\}
 \begin{equation}
-\begin{split}
-	a\,x^2+b\,x+c = 0\\
-	x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
-\end{split}
+	\begin{split}
+		a\,x^2+b\,x+c = 0\\
+		x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+	\end{split}
 \end{equation}
 
 \textbackslash begin\{aligned\} \dots \textbackslash end\{aligned\}
@@ -49,7 +49,7 @@ Varios
 	\int_0^T x\left(t\right) dt \\
 	\iint_V x\left(u,v\right) du\,dv \\
 	\sum_{i=0}^n\left(i\right) \\
-	\alpha \; \beta \; \gamma \; \Omega \; \mu \bm{v}
+	\alpha \; \beta \; \gamma \; \Omega \; \omega \; \mu \bm{v}
 \end{split}
 \end{equation*}
 \end{document}

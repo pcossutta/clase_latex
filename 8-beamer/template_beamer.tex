@@ -1,0 +1,87 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\definecolor{BlueITBA}{HTML}{00558c} 
+\colorlet{beamer@blendedblue}{BlueITBA}
+\setbeamertemplate{caption}{\scriptsize\insertcaption}
+\setbeamertemplate{itemize items}[circle]
+%\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subitem}{\raisebox{0.2em}{\scalebox{0.65}{$\blacktriangleright$}}}   % Second level
+
+%\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+
+\usepackage{sansmathfonts}				% Sans Serif equations
+%\usepackage[T1]{fontenc}				% Output font encoding for international characters, displays WRONG on Windows
+\usepackage[utf8]{inputenc}				% Encoding of files: utf8
+\renewcommand*\familydefault{\sfdefault} 		% Sans Serif as default font
+ 
+ \hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+
+% Setup the language and its properties (choose only one)
+\usepackage[spanish, es-tabla, es-nodecimaldot]{babel}
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+\usepackage{graphicx}
+\usepackage{tikz}						% Required for title page
+\usepackage{bm}						% Required for Bold Math
+
+\title[Beamer Template]{Beamer Template}
+\subtitle{Example \tiny{ver. 1.0}}
+\author{Dr. Pablo \textsc{Cossutta}}
+\institute[]{\textsc{Buenos Aires Technological Institute}}
+\date{August 2020}
+\logo{\includegraphics[height=1.5cm]{figs/logo_itba.png}} 
+ 
+\begin{document}
+\beamertemplatenavigationsymbolsempty % Disable Nav Bar
+% Title and Intro
+\maketitle
+\logo{}
+
+% 1
+\begin{frame}{Single frame example}
+This is plain text
+\begin{itemize}
+	\item First item
+	\begin{itemize}
+		\item Second item
+		\begin{itemize}
+			\item Third and last item
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+This is a equation
+\begin{equation*}
+	E=mc^2
+\end{equation*}
+\end{frame}
+
+% 2
+\begin{frame}{Columns frame example}
+\begin{columns}[c]
+\column{0.5\textwidth}
+This is text
+\begin{itemize}
+	\item First item
+	\begin{itemize}
+		\item Second item
+		\begin{itemize}
+			\item Third and last item
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+This is a equation
+\begin{equation*}
+	E=mc^2
+\end{equation*}
+\column{0.5\textwidth}
+This is a figure
+\begin{figure}
+	\includegraphics[width=0.8\textwidth]{./figs/logo_itba.png}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\end{document}

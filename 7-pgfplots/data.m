@@ -1,7 +1,7 @@
 clear all
 close all
 
-name = 'fig1';
+name = 'fig1_tikz';
 width = 12;
 height = 8;
 h1=figure('Units','centimeters', 'Position',[0 0 width height], 'PaperPositionMode','auto');
@@ -20,3 +20,4 @@ set(gca, 'TickLabelInterpreter','latex', 'FontUnits', 'Points', 'FontSize', 9, '
 set(gca, 'XTick',[0, pi/2, pi, 3/2*pi, 2*pi])
 set(gca, 'XTicklabel',{'$0$', '$\frac{\pi}{2}$', '$\pi$', '$\frac{3}{2}\pi$', '$2\pi$'})
 grid on
+

@@ -3,7 +3,7 @@
 
 \title{Formato}
 \author{Dr. Ing. Pablo Cossutta \thanks{Gracias a \LaTeX}}
-\date{2019}
+\date{2019-2020 v1.1}
 
 \begin{document}
 %\begin{titlepage}
@@ -13,7 +13,7 @@
 Esto es una sección. Dentro de la organización jerárquica de un artículo es la de mayor jerarquía. En caso de libros y reportes, existe también \textbackslash part, \textbackslash chapter.
 
 Acá empieza otra línea del texto.
-Esto también es otra línea pero sin dejar una línea en blanco.
+Esto también es otra línea pero sin dejar una línea en blanco en el medio. 
 
 \noindent \textbackslash noindent fuerza la no identación del bloque de texto.
 
@@ -59,17 +59,25 @@ Estos son los diferentes tipos de letra que están por defecto:
 \end{flushleft}
 
 \subsection{Atributos}
-El texto puede ser \textbf{Texto} (\textbackslash textbf), \textsc{Texto} (\textbackslash textsc), \textit{Texto} (\textbackslash textit) o cualquier combinación de ellas. También podemos cambiar a Sans \textsf{Estoy en otra tipografía}.  No todas las tipografías tienen todas las combinaciones.
+El texto puede ser \textbf{Texto} (\textbackslash textbf), \textsc{Texto} (\textbackslash textsc), \textit{Texto} (\textbackslash textit), \texttt{Texto} (\textbackslash texttt) o cualquier combinación de ellas. También podemos cambiar a Sans \textsf{Estoy en otra tipografía}. No todas las tipografías tienen todas las combinaciones.
 
 \subsection{Referencias}
-Como se explica en la Sec. \ref{sec1}, esto es otra sección. Para referenciar otro lugar, se usa el comando \textbackslash ref\{\dots\}. Que apunta al lugar definido por \textbackslash label\{\dots\}.
+Como se explica en la Sec.~\ref{sec1}, esto es otra sección. Para referenciar otro lugar, se usa el comando \textbackslash ref\{\dots\}. Que apunta al lugar definido por \textbackslash label\{\dots\}.
 
-\newcommand\helloA[1][]{Soy una definición sin parámetros}
-\newcommand\helloB[1][]{Soy una definición con un parámetro opcional !\gdef\savearg{#1}}
+\newcommand{\cmdA}{Definición sin parámetros, solo reemplaza}
+\newcommand{\cmdB}[1]{Definición con 1 parámetro ! Parámetro: #1}
+\newcommand{\cmdC}[2][default]{Definición con 2 parámetros (1 opcional) ! Parámetros: {#1} y {#2}}
+
 \section{Substituciones}
-\helloA
+Acá se muestran las sustituciones en las macros.
 
-\helloB{ Parámetro opcional}
+\cmdA
 
-\helloB
+\cmdB
+
+\cmdB{par1}
+
+\cmdC[par1]{par2}
+
+\cmdC{par2}
 \end{document}

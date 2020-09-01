@@ -11,7 +11,7 @@ frec,vin,vout,fase
 
 \title{Tablas}
 \author{Dr. Ing. Pablo Cossutta}
-\date{2019}
+\date{2019-2020 v1.1}
 
 \begin{document}
 \maketitle
@@ -104,17 +104,17 @@ Si se desea usar l, r o c pero con tamaño fijo pueden utilizarse los comandos L
 
 La Tabla \ref{table7} utiliza los datos proporcionados por el archivo ``bode.csv'' el cual se genera automáticamente con filecontents*.
 %\csvautotabular{bode.csv}
-%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
 \begin{table}[h!]
 	\centering
 	\caption{Ejemplo de tabla centrada con datos desde ``bode.csv'}
 	\label{table7}
 	\begin{tabular}{c c c c c}%
 		\bfseries \# & $\bm{f}$ & $\bm{v_{in}}$ & $\bm{v_{out}}$ & $\bm{\theta}$ \\ \hline
-		\csvreader[head to column names, late after line=\\]{bode.csv}{}{\thecsvrow & \frec & \vin & \vout & \fase}
+		\csvreader[head to column names, late after line=\\]{bode.csv}{}{\thecsvrow & \frec & \vin & \vout & $\fase^\circ$}
 		\hline
 	\end{tabular}
 \end{table}
+Se pueden utilizar expresiones matemáticas en los datos de las columnas.
 
 Adentro del \textit{enviroment} tabular se puede poner cualquier cosa (muy útil para organizar un arreglo de gráficos).
 

@@ -13,9 +13,13 @@
 }
 
 \begin{document}
+
+% Fig. 1
 \begin{page}%
-Documentación del paquete \href{https://ctan.org/pkg/circuitikz?lang=en}{circuitikz}.
+	Documentación del paquete \href{https://ctan.org/pkg/circuitikz?lang=en}{circuitikz}.
 \end{page}
+
+% Fig. 2
 \begin{page}%
 	\begin{circuitikz}[american voltages]
 		\tikzstyle{every node}=[font=\footnotesize]	
@@ -23,7 +27,10 @@ Documentación del paquete \href{https://ctan.org/pkg/circuitikz?lang=en}{circui
 		(0,-1) to[american voltage source, l=$v\left(t\right)$, invert] ++(0,2) -- ++(0.5,0)
 		to[R, l=$R$, v=$v_r$, i=$i\left(t\right)$] ++(2,0) -- ++(0.5,0) node[]{}
 		to[C, l=$C$, v=$v_c$] ++(0,-2)
-		to[short, -*] ++ (-1.5,0) node[ground, scale=0.6]{} to[short] ++(-1.5,0);
+		to[short, -*] ++ (-1.5,0) 
+		node[ground, scale=0.9]{}
+		%to[short] ++(0,-0.25) node[tlground, scale=1]{} to[open] ++(0,0.25) 
+		to[short] ++(-1.5,0);
 	\end{circuitikz}
 \end{page}
 
@@ -33,8 +40,8 @@ Documentación del paquete \href{https://ctan.org/pkg/circuitikz?lang=en}{circui
 to[short, *-] ++(-1,0) to[nos, l=$s_1$] ++(0,-1.5) node(#1_a){} --++(0, -1.3) to[nos, l=$s_4$] ++(0,-1.5) to[short, -*] ++(1,0)
 (#1_up) to[nos, l=$s_2$] ++(0,-1.5) --++(0, -0.65) node(#1_b){} --++(0, -0.65) to[nos, l=$s_5$] ++(0,-1.5)
 (#1_up) to[short] ++(1,0) to[nos, l=$s_3$] ++(0,-1.5) --++(0, -1.3) node(#1_c){} to[nos, l=$s_6$] ++(0,-1.5) --++(-1,0)}
-%
-%Fig. 1
+
+% Fig. 3
 \begin{page}%
 	\begin{circuitikz}[american voltages]
 		\tikzstyle{every node}=[font=\footnotesize]	
@@ -50,4 +57,19 @@ to[short, *-] ++(-1,0) to[nos, l=$s_1$] ++(0,-1.5) node(#1_a){} --++(0, -1.3) to
 		(csi_c) node[left]{$c$} to[short, *-] ++(0.5,0) --++(1,0) node[above]{$i_{inv_c}$} --++(0,0) node[currarrow]{};
 	\end{circuitikz}%
 \end{page}
+
+%  Fig. 4
+\begin{page}%
+	\begin{circuitikz}
+		\tikzstyle{every node}=[font=\footnotesize]
+		\ctikzset{resistors/scale=0.8}	
+		\ctikzset{batteries/scale=1}	
+		\draw (0, 0) to[battery2, l=$v_d$, invert] ++(0,2) 
+		to[short] ++(0.25,0) to[R, l=$R_1$] ++(2,0) to[short] ++(0.25,0)
+		to[R, l_=$R_x$, v^<=$v_o$] ++(0,-2)
+		to[short] ++(-2.5,0); 
+		\draw (1.25,3) node[]{Divisor Resistivo};
+	\end{circuitikz}
+\end{page}
+
 \end{document}

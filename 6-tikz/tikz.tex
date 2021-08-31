@@ -68,9 +68,9 @@ La Fig. \ref{fig3} se incluye desde TikZ para poder realizar anotaciones sobre l
 		\tikzstyle{flecha} = [->, line width=0.25mm, >=latex]
 		\node[anchor=south west,inner sep=0, outer sep=0] (image) at (0,0) {\includegraphics[width=9cm]{fig3.jpg}};
 		\begin{scope}[x={(image.south east)},y={(image.north west)}]
-		        %\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
-		        %\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
-		        %\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }		        
+			%\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+			%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }		        
 			\node at (0.61, 0.95) [block](a){MATLAB Simulink};
 			\node at (0.61, 0.85) [block](b){Convertidor\\Industrial};
 			\node at (0.61, 0.73) [block](c){Autotransformador\\Variable};

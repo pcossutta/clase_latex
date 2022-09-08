@@ -12,7 +12,8 @@
 	\begin{axis}[grid=both, ymin=-1, ymax= 1, xmin=0, xmax=2*pi,
 		width=10cm, height=6cm, tick label style={font=\scriptsize},  label style={font=\scriptsize},
 		xlabel={$\omega t$}, legend style={font=\tiny}, legend pos=north east,
-		xtick={0,pi/2,pi,3/2*pi,2*pi},
+%		xtick={0,pi/2,pi,3/2*pi,2*pi},
+		xtick={0,pi/2,...,2*pi},
 		xticklabels={{$0$},{$\frac{\pi}{2}$},{$\pi$},{$\frac{3}{2}\pi$},{$2\pi$}}]
 		\addplot[color=blue, thick] table[x index=0, y index=1]{\data};
 		\addplot[color=red, thick] table[x index=0, y index=2]{\data};
